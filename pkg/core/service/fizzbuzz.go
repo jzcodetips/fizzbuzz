@@ -16,7 +16,7 @@ func NewFizzBuzz() *FizzBuzz {
 func (f *FizzBuzz) Process(int1, int2, limit int, str1, str2 string) string {
 	var s string
 
-	for i := 1; i < limit; i++ {
+	for i := 1; i <= limit; i++ {
 		if i%int1 == 0 && i%int2 == 0 {
 			s += str1 + str2
 		} else if i%int1 == 0 {
@@ -27,7 +27,7 @@ func (f *FizzBuzz) Process(int1, int2, limit int, str1, str2 string) string {
 			s += strconv.Itoa(i)
 		}
 
-		if i+1 < limit {
+		if i+1 <= limit {
 			s += ","
 		}
 	}
