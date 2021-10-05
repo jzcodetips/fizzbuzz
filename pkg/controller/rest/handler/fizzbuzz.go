@@ -43,7 +43,7 @@ func (f *FizzBuzz) Handle(ctx echo.Context) error {
 
 	metrics.CollectFizzBuzz("/fizzbuzz", *p)
 
-	return ctx.String(http.StatusOK, f.service.Process(p.Int1, p.Int2, p.Limit, p.Str1, p.Str2))
+	return ctx.JSON(http.StatusOK, f.service.Process(p.Int1, p.Int2, p.Limit, p.Str1, p.Str2))
 }
 
 func parseQueryParam(ctx echo.Context) (*entity.FizzBuzzParams, error) {

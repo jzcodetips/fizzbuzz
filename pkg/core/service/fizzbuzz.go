@@ -13,24 +13,25 @@ func NewFizzBuzz() *FizzBuzz {
 }
 
 // Process fizzbuzz.
-func (f *FizzBuzz) Process(int1, int2, limit int, str1, str2 string) string {
-	var s string
+func (f *FizzBuzz) Process(int1, int2, limit int, str1, str2 string) []string {
+	var (
+		s   string
+		arr []string
+	)
 
 	for i := 1; i <= limit; i++ {
 		if i%int1 == 0 && i%int2 == 0 {
-			s += str1 + str2
+			s = str1 + str2
 		} else if i%int1 == 0 {
-			s += str1
+			s = str1
 		} else if i%int2 == 0 {
-			s += str2
+			s = str2
 		} else {
-			s += strconv.Itoa(i)
+			s = strconv.Itoa(i)
 		}
 
-		if i+1 <= limit {
-			s += ","
-		}
+		arr = append(arr, s)
 	}
 
-	return s
+	return arr
 }
